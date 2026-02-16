@@ -1170,8 +1170,24 @@ body.scrollable {
 }
 
 @media (max-width: 640px) {
+    /* Card as inline content on mobile */
+    #cardOverlay.mobile-inline {
+        position: static;
+        z-index: auto;
+        background: none;
+        padding: 120px 16px 32px;
+    }
+
+    #cardOverlay.mobile-inline::before {
+        display: none;
+    }
+
     .card {
         aspect-ratio: auto; padding: 32px 28px; gap: 28px;
+        width: 100%;
+        max-width: 100%;
+        will-change: auto;
+        transform-style: flat;
     }
     .card-top { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
     .card-photo { width: 130px; height: 130px; border-radius: 50%; }
@@ -1183,6 +1199,9 @@ body.scrollable {
     .card-socials { justify-content: center; }
     .header-email, .header-phone { display: none; }
     #header { padding: 0 24px; }
+
+    /* Reduce top padding on content since card is above it */
+    #content { padding-top: 24px; }
 
     .media-wall {
         column-count: 2;

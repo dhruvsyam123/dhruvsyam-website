@@ -255,11 +255,20 @@ function init() {
     renderWork();
 
     if (isMobile) {
-        // Skip gate and card on mobile - go straight to content
+        // Skip gate on mobile - show card inline as part of page, then content below
         gate.style.display = 'none';
-        cardOverlay.style.display = 'none';
         verified = true;
         phase = 'content';
+
+        // Make card overlay and card visible as inline content (CSS handles positioning)
+        cardOverlay.classList.add('visible', 'mobile-inline');
+        card.classList.add('visible');
+        card.style.opacity = '1';
+        card.style.transform = 'none';
+
+        // Hide scroll cue since page just scrolls normally
+        if (scrollCue) scrollCue.style.display = 'none';
+
         header.classList.add('visible');
         document.body.classList.add('scrollable');
         contentEl.classList.add('visible');
