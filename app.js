@@ -28,15 +28,21 @@ const WORK_DATA = [
         items: [
             {
                 title: 'MAGIC AI',
-                description: 'AI-powered exercise rep counting using computer vision. Built a WhatsApp chatbot as an AI personal trainer.',
+                caption: 'Computer vision exercise tracking, WhatsApp AI coach, and data engineering.',
+                description: 'I work at Magic AI three days a week. The whole fitness CV industry, us included, was white-labelling open-source pose models and hard-coding form rules for each exercise. It didn\'t scale. I forked MediaPipe, rewrote parts of the pipeline in C, and trained an autoencoder plus random forest classifier on proprietary customer pose data, after building the data collection infrastructure from scratch. I also discovered our device\'s NPU was sitting completely idle, so I quantised the model to run on it and pushed inference from roughly 8 FPS to 25.\n\nSeparately, I built a WhatsApp AI coaching bot on Twilio and Gemini in a single week over the Christmas break. It now handles over 1,000 daily messages and accounts for 10% of our total sales in less than a month.\n\nOn the data side, I set up a PostgreSQL database and built a real-time stream from DynamoDB so the whole team can query our data themselves through Metabase. I also fixed our Mixpanel tracking, which was riddled with inconsistencies, and built the retention dashboards that got the company thinking product-first.\n\nI also own the full hardware engineering lifecycle: managing repairs, coordinating with international suppliers, and driving hardware-informed product improvements.',
                 date: null,
-                link: null,
-                linkType: null,
+                link: 'https://youtube.com/shorts/ptUl84q0cdg',
+                linkType: 'youtube',
                 image: 'assets/logos/magic.png',
+                detailMedia: [
+                    { type: 'youtube-short', url: 'https://youtube.com/shorts/ptUl84q0cdg' },
+                    { type: 'image', url: 'assets/work/magic-whatsapp-1.png' },
+                ],
             },
             {
                 title: 'Bank of America',
-                description: null,
+                caption: 'Spring internship in trading. Monte Carlo swaption pricing.',
+                description: 'Selected from 3,000 applicants for a spring internship in the trading division. Built a Monte Carlo simulation for interest rate swaption pricing using bootstrapped yield curves and stochastic rate paths.',
                 date: null,
                 link: null,
                 linkType: null,
@@ -44,25 +50,30 @@ const WORK_DATA = [
             },
             {
                 title: 'Emissary Partners',
-                description: null,
+                caption: 'Sole engineer at a boutique advisory. AI-automated research and client acquisition.',
+                description: 'At the time, Emissary was a four-person family office advisory. I was the sole engineer and fully automated their research and client acquisition process, essentially building a version of deep research tooling before any of those products existed. This was very early ChatGPT, so most of the agentic patterns I put together weren\'t really a thing yet.\n\nThe firm pays for access to private databases, so I built scrapers to pull from those sources, summarisation pipelines to distil the output, and separate bots that would fact-check and assemble one-pagers for prospective clients. I also built a bunch of legal tooling and scripts to access and process protected documents they needed for due diligence.\n\nTheir analyst estimated it saved them around 20 hours a week of manual work.',
                 date: null,
                 link: null,
                 linkType: null,
                 image: 'assets/logos/emissary.png',
             },
             {
-                title: 'Dev Salutem',
-                description: 'Finalist at Amazon hackathon. Won £1k to build prototype  - 3D printed case, Raspberry Pi.',
+                title: 'Amazon Hackathon',
+                caption: 'Yoga tracking device for exercise at home during the pandemic.',
+                description: 'Built a browser-based yoga tracking device designed for people exercising at home during the pandemic. We were finalists at an Amazon hackathon and won funding plus three-month mentorship to build out the prototype.\n\nThe hardware was a 3D-printed casing around a Raspberry Pi, with a cheap motor and a handmade fan for cooling. On the software side I optimised a Three.js computer vision library to get pose estimation running well in the browser. We also built mood classification to help users track their mental health improving over time, since the whole thing was designed around isolation.\n\nThis was the start of my interest in computer vision and what eventually led to my work at MAGIC AI.',
                 date: null,
                 link: 'https://youtu.be/y7PDCqrbS4c',
                 linkType: 'youtube',
                 image: 'assets/logos/amazon.png',
-                detailImage: 'assets/work/prototype.png',
-                detailImageCaption: 'Testing out a prototype in Year 11 maths',
+                detailMedia: [
+                    { type: 'youtube', url: 'https://youtu.be/y7PDCqrbS4c' },
+                    { type: 'image', url: 'assets/work/prototype.png', caption: 'Testing out a prototype in Year 11 maths' },
+                ],
             },
             {
                 title: 'Softwire',
-                description: null,
+                caption: 'Built features on an NHS mental health platform in React at 16.',
+                description: 'Softwire is a software consultancy. I interned there when I was 16, working on an NHS-commissioned mental health support platform built in React. I implemented patient-facing features including questionnaire flows and resource pages, and worked across the stack to connect these to the existing API layer. Also picked up accessibility improvements to meet NHS Digital service standards.',
                 date: null,
                 link: null,
                 linkType: null,
@@ -128,20 +139,28 @@ const WORK_DATA = [
         category: 'Guitar',
         items: [
             {
-                title: 'First Guitarist to Win Overall Prize',
-                description: 'First guitarist ever to win local music festival overall prize.',
-                date: null,
-                link: null,
-                linkType: null,
-                image: null,
-            },
-            {
                 title: 'National Youth Guitar Ensemble',
-                description: null,
+                caption: 'Four years performing at the highest level of youth classical guitar in the UK. Concerts to crowds of 1,000+, toured abroad in Spain.',
+                description: 'I was a member of the National Youth Guitar Ensemble for four years, performing classical guitar at the highest level in the country. We played concerts to audiences of over a thousand people and toured abroad in Spain.\n\nWhat I loved most was the concentration. We would practise eight hours a day for a week straight, and the level of focus required was more intense than anything else I\'ve done. There was something about locking in on a single goal with that kind of discipline that I haven\'t really found anywhere else.',
                 date: null,
                 link: 'https://youtu.be/uQDwTXJ9bsc',
                 linkType: 'youtube',
                 image: 'assets/logos/nyge.png',
+                detailMedia: [
+                    { type: 'youtube', url: 'https://youtu.be/uQDwTXJ9bsc', caption: 'Shaky recording of one of our performances. I\'m in the middle with a blue shirt.' },
+                ],
+            },
+            {
+                title: 'Hertfordshire Music Festival: Millicent Ward Rose Bowl',
+                caption: 'First guitarist in 80 years of the festival\'s history to win the overall award. Usually dominated by piano and violin.',
+                description: 'The Millicent Ward Rose Bowl is the top prize at the Hillingdon Music Festival. In all of its 80-year history, the winner had always been a pianist or a more traditional instrument like violin. I was the first guitarist to win it.',
+                date: null,
+                link: null,
+                linkType: null,
+                image: 'assets/logos/herts-festival.png',
+                detailMedia: [
+                    { type: 'image', url: 'assets/work/millicent-ward.png' },
+                ],
             },
         ]
     },
@@ -1077,9 +1096,13 @@ function getLinkLabel(linkType) {
 }
 
 function getYouTubeId(url) {
-    // youtu.be/ID or youtube.com/watch?v=ID
+    // youtube.com/shorts/ID
+    const shorts = url.match(/\/shorts\/([^?&/]+)/);
+    if (shorts) return shorts[1];
+    // youtu.be/ID
     const short = url.match(/youtu\.be\/([^?&]+)/);
     if (short) return short[1];
+    // youtube.com/watch?v=ID
     const long = url.match(/[?&]v=([^?&]+)/);
     if (long) return long[1];
     return null;
@@ -1152,7 +1175,42 @@ function renderWorkDetail(index) {
         meta = `<div class="work-detail-meta">${datePart}${badgePart}</div>`;
     }
 
-    const embed = getEmbed(item);
+    // Build media showcase if detailMedia exists
+    let mediaShowcase = '';
+    if (item.detailMedia && item.detailMedia.length > 0) {
+        const hasShort = item.detailMedia.some(m => m.type === 'youtube-short');
+        const hasRegularVideo = item.detailMedia.some(m => m.type === 'youtube');
+        const showcaseClass = hasShort ? 'work-detail-showcase' : 'work-detail-showcase showcase-equal';
+        const mediaItems = item.detailMedia.map(m => {
+            if (m.type === 'youtube-short') {
+                const id = getYouTubeId(m.url);
+                return `<div class="showcase-item showcase-video-short">
+                    <div class="showcase-video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    ${m.caption ? `<span class="showcase-caption">${m.caption}</span>` : ''}
+                </div>`;
+            } else if (m.type === 'youtube') {
+                const id = getYouTubeId(m.url);
+                return `<div class="showcase-item showcase-video-landscape">
+                    <div class="showcase-video-landscape-wrapper">
+                        <iframe src="https://www.youtube.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    ${m.caption ? `<span class="showcase-caption">${m.caption}</span>` : ''}
+                </div>`;
+            } else {
+                return `<div class="showcase-item showcase-image-landscape">
+                    <div class="showcase-image-wrapper">
+                        <img src="${m.url}" alt="${m.caption || ''}" loading="lazy" onerror="this.parentElement.classList.add('showcase-placeholder')">
+                    </div>
+                    ${m.caption ? `<span class="showcase-caption">${m.caption}</span>` : ''}
+                </div>`;
+            }
+        }).join('');
+        mediaShowcase = `<div class="${showcaseClass}">${mediaItems}</div>`;
+    }
+
+    const embed = (!item.detailMedia) ? getEmbed(item) : '';
     const isPdfEmbed = item.linkType === 'pdf' && item.link;
 
     const mobileNav = `<div class="work-modal-mobile-nav">
@@ -1176,7 +1234,7 @@ function renderWorkDetail(index) {
             </div>
             ${mobileNav}`;
     } else {
-        content.innerHTML = category + title + desc + image + meta + embed + mobileNav;
+        content.innerHTML = category + title + desc + mediaShowcase + image + meta + embed + mobileNav;
     }
 
     // Attach mobile nav handlers
@@ -1195,7 +1253,8 @@ function openWorkModal(index) {
     const modal = document.getElementById('workModal');
     const item = allWorkItems[index];
     const isPdf = item.linkType === 'pdf' && item.link;
-    modal.classList.toggle('wide', isPdf);
+    const hasShowcase = item.detailMedia && item.detailMedia.length > 0;
+    modal.classList.toggle('wide', isPdf || hasShowcase);
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
 
@@ -1215,7 +1274,8 @@ function navigateWork(delta) {
     currentWorkIndex = (currentWorkIndex + delta + allWorkItems.length) % allWorkItems.length;
     const item = allWorkItems[currentWorkIndex];
     const isPdf = item.linkType === 'pdf' && item.link;
-    document.getElementById('workModal').classList.toggle('wide', isPdf);
+    const hasShowcase = item.detailMedia && item.detailMedia.length > 0;
+    document.getElementById('workModal').classList.toggle('wide', isPdf || hasShowcase);
     renderWorkDetail(currentWorkIndex);
 }
 
