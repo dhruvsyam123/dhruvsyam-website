@@ -255,16 +255,15 @@ function init() {
     renderWork();
 
     if (isMobile) {
-        // Skip gate entirely on mobile  - go straight to card
+        // Skip gate and card on mobile - go straight to content
         gate.style.display = 'none';
+        cardOverlay.style.display = 'none';
         verified = true;
-        cardOverlay.classList.add('visible');
-        setTimeout(() => card.classList.add('visible'), 80);
-        setTimeout(() => {
-            card.classList.add('interactive');
-            phase = 'card';
-            setupMobileCardTap();
-        }, 400);
+        phase = 'content';
+        header.classList.add('visible');
+        document.body.classList.add('scrollable');
+        contentEl.classList.add('visible');
+        contentEl.style.opacity = '1';
     } else {
         checkboxArea.addEventListener('click', startChallenge);
         skipLink.addEventListener('click', transitionToLanding);
@@ -1386,7 +1385,7 @@ function onWorkModalKeyDown(e) {
 // ── Header Name → Return to Card ──
 
 function returnToCard() {
-    if (phase !== 'content') return;
+    if (phase !== 'content' || isMobile) return;
     phase = 'returning'; // prevent scroll/morph interference
 
     // Immediately stop page scrolling and go to top
