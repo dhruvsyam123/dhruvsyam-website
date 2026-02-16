@@ -126,12 +126,18 @@ const WORK_DATA = [
         category: 'Social Media',
         items: [
             {
-                title: 'Shaun Attwood',
-                description: 'Produced content for Shaun Attwood.',
+                title: 'Social Media Business',
+                caption: 'Built a video editing business during COVID. Made \u00A330k, grew creators from 100k to 1M+ subs.',
+                description: 'During COVID, quite a few ex-convicts were released or needed income and started producing genuinely fascinating true crime podcasts, but most had very little tech literacy.\n\nI started out editing videos and clipping podcasts in Adobe, but quickly evolved into full social media management: growing channels, landing brand deals, and advising on content strategy. I grew creators from around 100k YouTube subscribers to over 1M, and built TikTok accounts from zero to 1M+ followers.\n\nI set myself the target of making \u00A330k within the first 2.5 years, enough to fully fund university and justify the decision over a degree apprenticeship offer I had. I hit that target, hired one part-time editor through Fiverr to keep up with demand, and worked with around 10 creators in total.',
                 date: null,
-                link: 'https://www.youtube.com/watch?v=cNzhkOVGAe0&t=291s',
-                linkType: 'youtube',
-                image: null,
+                link: 'https://www.tiktok.com/@shaunattwood11/video/7101015607138700549',
+                linkType: 'tiktok',
+                image: 'assets/logos/shorts.png',
+                detailMedia: [
+                    { type: 'tiktok', url: 'https://www.tiktok.com/@shaunattwood11/video/7101015607138700549', caption: '5M+ views \u00b7 700K+ likes' },
+                    { type: 'tiktok', url: 'https://www.tiktok.com/@shaunattwood/video/7529492089399250198', caption: '222K views' },
+                    { type: 'youtube', url: 'https://www.youtube.com/watch?v=cNzhkOVGAe0&t=291s', caption: 'Full podcast I edited and clipped \u00b7 650K views' },
+                ],
             },
         ]
     },
@@ -143,11 +149,11 @@ const WORK_DATA = [
                 caption: 'Four years performing at the highest level of youth classical guitar in the UK. Concerts to crowds of 1,000+, toured abroad in Spain.',
                 description: 'I was a member of the National Youth Guitar Ensemble for four years, performing classical guitar at the highest level in the country. We played concerts to audiences of over a thousand people and toured abroad in Spain.\n\nWhat I loved most was the concentration. We would practise eight hours a day for a week straight, and the level of focus required was more intense than anything else I\'ve done. There was something about locking in on a single goal with that kind of discipline that I haven\'t really found anywhere else.',
                 date: null,
-                link: 'https://youtu.be/uQDwTXJ9bsc',
+                link: 'https://youtu.be/CtMcNMPMH9I',
                 linkType: 'youtube',
                 image: 'assets/logos/nyge.png',
                 detailMedia: [
-                    { type: 'youtube', url: 'https://youtu.be/uQDwTXJ9bsc', caption: 'Shaky recording of one of our performances. I\'m in the middle with a blue shirt.' },
+                    { type: 'youtube', url: 'https://youtu.be/CtMcNMPMH9I', caption: 'Shaky recording of one of our performances. I\'m in the middle with a blue shirt.' },
                 ],
             },
             {
@@ -1089,6 +1095,7 @@ function renderWork() {
 function getLinkLabel(linkType) {
     const labels = {
         youtube: 'View on YouTube',
+        tiktok: 'View on TikTok',
         github: 'View on GitHub',
         pdf: 'View PDF',
     };
@@ -1108,6 +1115,11 @@ function getYouTubeId(url) {
     return null;
 }
 
+function getTikTokId(url) {
+    const match = url.match(/\/video\/(\d+)/);
+    return match ? match[1] : null;
+}
+
 function getEmbed(item) {
     if (!item.link) return '';
 
@@ -1116,6 +1128,15 @@ function getEmbed(item) {
         if (id) {
             return `<div class="work-detail-embed work-detail-embed-video">
                 <iframe src="https://www.youtube.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>`;
+        }
+    }
+
+    if (item.linkType === 'tiktok') {
+        const id = getTikTokId(item.link);
+        if (id) {
+            return `<div class="work-detail-embed work-detail-embed-tiktok">
+                <iframe src="https://www.tiktok.com/player/v1/${id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>`;
         }
     }
@@ -1178,15 +1199,26 @@ function renderWorkDetail(index) {
     // Build media showcase if detailMedia exists
     let mediaShowcase = '';
     if (item.detailMedia && item.detailMedia.length > 0) {
-        const hasShort = item.detailMedia.some(m => m.type === 'youtube-short');
+        const shortCount = item.detailMedia.filter(m => m.type === 'youtube-short' || m.type === 'tiktok').length;
+        const hasShort = shortCount > 0;
         const hasRegularVideo = item.detailMedia.some(m => m.type === 'youtube');
-        const showcaseClass = hasShort ? 'work-detail-showcase' : 'work-detail-showcase showcase-equal';
+        let showcaseClass = 'work-detail-showcase';
+        if (shortCount >= 2) showcaseClass += ' showcase-multi-short';
+        else if (!hasShort) showcaseClass += ' showcase-equal';
         const mediaItems = item.detailMedia.map(m => {
             if (m.type === 'youtube-short') {
                 const id = getYouTubeId(m.url);
                 return `<div class="showcase-item showcase-video-short">
                     <div class="showcase-video-wrapper">
                         <iframe src="https://www.youtube.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    ${m.caption ? `<span class="showcase-caption">${m.caption}</span>` : ''}
+                </div>`;
+            } else if (m.type === 'tiktok') {
+                const id = getTikTokId(m.url);
+                return `<div class="showcase-item showcase-video-short">
+                    <div class="showcase-video-wrapper showcase-tiktok-wrapper">
+                        <iframe src="https://www.tiktok.com/player/v1/${id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     ${m.caption ? `<span class="showcase-caption">${m.caption}</span>` : ''}
                 </div>`;

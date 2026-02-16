@@ -958,6 +958,19 @@ body.scrollable {
     grid-row: 1 / -1;
 }
 
+.showcase-multi-short {
+    grid-template-columns: auto auto;
+    justify-content: center;
+}
+
+.showcase-multi-short .showcase-video-short {
+    grid-row: auto;
+}
+
+.showcase-multi-short .showcase-video-landscape {
+    grid-column: 1 / -1;
+}
+
 .showcase-video-wrapper {
     position: relative;
     width: 242px;
@@ -1050,6 +1063,10 @@ body.scrollable {
     margin-right: auto;
 }
 
+.showcase-tiktok-wrapper {
+    background: #000;
+}
+
 .showcase-caption {
     font-size: 11px;
     color: #999;
@@ -1057,6 +1074,26 @@ body.scrollable {
     font-style: italic;
     text-align: center;
     text-wrap: balance;
+}
+
+/* ── TikTok Embed ── */
+
+.work-detail-embed-tiktok {
+    position: relative;
+    max-width: 340px;
+    aspect-ratio: 9 / 16;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+    margin: 0 auto 16px;
+}
+
+.work-detail-embed-tiktok iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 @media (max-width: 640px) {
