@@ -1,46 +1,181 @@
 // ── Media Data ──
 
 const MEDIA_DATA = [
-    { title: 'Young Stalin', subtitle: 'Simon Sebag Montefiore', image: 'assets/media/young-stalin.jpg' },
-    { title: 'Oppenheimer', subtitle: '2023', image: 'assets/media/oppenheimer.jpg' },
-    { title: 'Continuum', subtitle: 'John Mayer', image: 'assets/media/continuum.jpg' },
-    { title: 'Industry', subtitle: 'HBO', image: 'assets/media/industry.jpg' },
-    { title: 'The Rest is History', subtitle: 'Tom Holland & Dominic Sandbrook', image: 'assets/media/rest-is-history.jpg' },
-    { title: 'Ordinary Men', subtitle: 'Christopher Browning', image: 'assets/media/ordinary-men.jpg' },
-    { title: 'The 1975', subtitle: 'The 1975', image: 'assets/media/the-1975.jpg' },
-    { title: 'The Holdovers', subtitle: '2023', image: 'assets/media/holdovers.jpg' },
-    { title: 'Dominion', subtitle: 'Tom Holland', image: 'assets/media/dominion.jpg' },
-    { title: 'One Piece', subtitle: 'Anime', image: 'assets/media/one-piece.jpg' },
-    { title: "All That You Can't Leave Behind", subtitle: 'U2', image: 'assets/media/u2-atyclb.jpg' },
-    { title: 'The Gulag Archipelago', subtitle: 'Aleksandr Solzhenitsyn', image: 'assets/media/gulag-archipelago.jpg' },
-    { title: 'The WAN Show', subtitle: 'Linus Tech Tips', image: 'assets/media/wan-show.jpg' },
-    { title: 'The Seldom Seen Kid', subtitle: 'Elbow', image: 'assets/media/elbow.jpg' },
-    { title: 'The Office', subtitle: 'US', image: 'assets/media/the-office.jpg' },
-    { title: 'The Brothers Karamazov', subtitle: 'Fyodor Dostoevsky', image: 'assets/media/brothers-karamazov.jpg' },
-    { title: 'Institute of Bad Loving', subtitle: 'Sophie Holloway', image: 'assets/media/sophie-holloway.jpg' },
+    { title: 'Young Stalin', subtitle: 'Simon Sebag Montefiore', image: 'assets/media/young-stalin.jpg', type: 'book', url: 'https://www.amazon.co.uk/s?k=Young+Stalin+Simon+Sebag+Montefiore' },
+    { title: 'Oppenheimer', subtitle: '2023', image: 'assets/media/oppenheimer.jpg', type: 'film', url: 'https://www.imdb.com/title/tt15398776/' },
+    { title: 'Continuum', subtitle: 'John Mayer', image: 'assets/media/continuum.jpg', type: 'music', url: 'https://open.spotify.com/search/Continuum+John+Mayer' },
+    { title: 'Industry', subtitle: 'HBO', image: 'assets/media/industry.jpg', type: 'film', url: 'https://www.imdb.com/title/tt11216260/' },
+    { title: 'The Rest is History', subtitle: 'Tom Holland & Dominic Sandbrook', image: 'assets/media/rest-is-history.jpg', type: 'podcast', url: 'https://open.spotify.com/search/The+Rest+is+History+podcast' },
+    { title: 'Ordinary Men', subtitle: 'Christopher Browning', image: 'assets/media/ordinary-men.jpg', type: 'book', url: 'https://www.amazon.co.uk/s?k=Ordinary+Men+Christopher+Browning' },
+    { title: 'The 1975', subtitle: 'The 1975', image: 'assets/media/the-1975.jpg', type: 'music', url: 'https://open.spotify.com/search/The+1975' },
+    { title: 'The Holdovers', subtitle: '2023', image: 'assets/media/holdovers.jpg', type: 'film', url: 'https://www.imdb.com/title/tt14849194/' },
+    { title: 'Dominion', subtitle: 'Tom Holland', image: 'assets/media/dominion.jpg', type: 'book', url: 'https://www.amazon.co.uk/s?k=Dominion+Tom+Holland' },
+    { title: 'One Piece', subtitle: 'Anime', image: 'assets/media/one-piece.jpg', type: 'film', url: 'https://www.imdb.com/title/tt0388629/' },
+    { title: "All That You Can't Leave Behind", subtitle: 'U2', image: 'assets/media/u2-atyclb.jpg', type: 'music', url: 'https://open.spotify.com/search/All+That+You+Cant+Leave+Behind+U2' },
+    { title: 'The Gulag Archipelago', subtitle: 'Aleksandr Solzhenitsyn', image: 'assets/media/gulag-archipelago.jpg', type: 'book', url: 'https://www.amazon.co.uk/s?k=Gulag+Archipelago+Solzhenitsyn' },
+    { title: 'The WAN Show', subtitle: 'Linus Tech Tips', image: 'assets/media/wan-show.jpg', type: 'podcast', url: 'https://open.spotify.com/search/The+WAN+Show' },
+    { title: 'The Seldom Seen Kid', subtitle: 'Elbow', image: 'assets/media/elbow.jpg', type: 'music', url: 'https://open.spotify.com/search/The+Seldom+Seen+Kid+Elbow' },
+    { title: 'The Office', subtitle: 'US', image: 'assets/media/the-office.jpg', type: 'film', url: 'https://www.imdb.com/title/tt0386676/' },
+    { title: 'The Brothers Karamazov', subtitle: 'Fyodor Dostoevsky', image: 'assets/media/brothers-karamazov.jpg', type: 'book', url: 'https://www.amazon.co.uk/s?k=Brothers+Karamazov+Dostoevsky' },
+    { title: 'Institute of Bad Loving', subtitle: 'Sophie Holloway', image: 'assets/media/sophie-holloway.jpg', type: 'music', url: 'https://open.spotify.com/search/Institute+of+Bad+Loving+Sophie+Holloway' },
 ];
+
+// ── Work Data ──
+
+const WORK_DATA = [
+    {
+        category: 'Software Engineering',
+        items: [
+            {
+                title: 'MAGIC AI',
+                description: 'AI-powered exercise rep counting using computer vision. Built a WhatsApp chatbot as an AI personal trainer.',
+                date: null,
+                link: null,
+                linkType: null,
+                image: 'assets/logos/magic.png',
+            },
+            {
+                title: 'Bank of America',
+                description: null,
+                date: null,
+                link: null,
+                linkType: null,
+                image: 'assets/logos/bofa.png',
+            },
+            {
+                title: 'Emissary Partners',
+                description: null,
+                date: null,
+                link: null,
+                linkType: null,
+                image: 'assets/logos/emissary.png',
+            },
+            {
+                title: 'Dev Salutem',
+                description: 'Finalist at Amazon hackathon. Won £1k to build prototype  - 3D printed case, Raspberry Pi.',
+                date: null,
+                link: 'https://youtu.be/y7PDCqrbS4c',
+                linkType: 'youtube',
+                image: 'assets/logos/amazon.png',
+                detailImage: 'assets/work/prototype.png',
+                detailImageCaption: 'Testing out a prototype in Year 11 maths',
+            },
+            {
+                title: 'Softwire',
+                description: null,
+                date: null,
+                link: null,
+                linkType: null,
+                image: 'assets/logos/softwire.png',
+            },
+        ]
+    },
+    {
+        category: 'Writing',
+        items: [
+            {
+                title: 'Mind the Price Gap  - Roads and Food Market Integration',
+                caption: 'Do Chinese-funded roads actually integrate food markets in Sub-Saharan Africa? Using price data from 338 markets across Malawi and Zambia, I find they do  - and the sweet spot is 100–200 km apart.',
+                description: 'TL;DR: Road upgrades cut food price gaps by 4.2% within a year, but only for markets at the right distance.\n\nFood markets in Sub-Saharan Africa are deeply fragmented  - prices for identical goods can vary wildly between nearby towns. I studied whether 14 Chinese-funded road projects in Malawi and Zambia actually fix this. Using high-frequency World Food Programme price data and a staggered difference-in-differences design, I show that upgrading major transport corridors leads to rapid and persistent price convergence.\n\nThe effects are non-monotonic with distance: no impact on markets under 50 km (already integrated) or over 200 km (still too far), but a 5.8% drop in dispersion for pairs 100–200 km apart. Roads unlock medium-distance trade that was previously too costly to be profitable.\n\nI also built an interactive simulator where you can draw hypothetical roads on a map and see predicted impacts on market integration.',
+                date: null,
+                link: 'https://drive.google.com/file/d/1nWCpSoVeZn6IlvjGKF4TRRpZta2kE6lx/view?usp=sharing',
+                linkType: 'pdf',
+                image: 'assets/logos/imperial.png',
+            },
+            {
+                title: 'Modelling AI\'s Impact on UK Employment',
+                caption: 'Awarded £1,000 research funding  - placed 2nd out of 10,000 applications. Built a quantitative model to predict AI\'s impact on the UK labour market over the next 30 years.',
+                description: 'Awarded £1,000 research funding  - placed 2nd out of 10,000 applications. A high school research project on the impact of AI on the UK labour market, and what first got me interested in AI safety through my work in effective altruism.\n\nWith every industrial revolution there\'s been a huge lag period where jobs are lost and people suffer from structural change. The project builds an economic model  - starting from a modified Cobb-Douglas production function  - to predict what that lag looks like with AI, sector by sector.\n\nUsing O*NET occupational data and McKinsey automation estimates, the model accounts for AI\'s exponential self-improvement (an endogeneity most existing models miss) and applies sector-specific productivity parameters to forecast output and employment shifts across the UK economy over 30 years.',
+                date: null,
+                link: 'https://www.youtube.com/watch?v=5C5QAf8szKM',
+                linkType: 'youtube',
+                image: 'assets/logos/nontrivial.svg',
+            },
+            {
+                title: 'Does Unilateral Free Trade Serve a Nation\'s Economic Interest?',
+                caption: 'Placed 3rd out of ~30,000 applicants in the John Locke Institute Essay Competition. Argues UFT benefits developed economies but can devastate developing ones without established domestic industries.',
+                description: 'TL;DR: Unilateral free trade is great for developed economies with strong industries, but can devastate developing countries that open up too early.\n\nPlaced 3rd out of ~30,000 applicants in the John Locke Institute Essay Competition. The case for UFT is compelling \u2014 cheaper imports, greater competition, less political protectionism \u2014 but it breaks down for developing nations. Cuba\'s open trade led to economic colonialism, and Britain, Germany, and the US all used high tariffs during industrialisation.\n\nDraws on evidence from the Corn Laws to South Korean protectionism to argue the infant industry case holds when countries have an underlying comparative advantage \u2014 but otherwise, UFT is the simpler path to growth.',
+                date: null,
+                link: 'https://drive.google.com/file/d/1bauLc9T5TpzDKh5Q9byhG0cNyi1mhR1f/view',
+                linkType: 'pdf',
+                image: 'assets/logos/johnlocke.png',
+            },
+            {
+                title: 'IEA Economics Essay',
+                caption: 'Why did economists predict deflation when COVID actually brought inflation? Written for the Institute of Economic Affairs, one of the UK\'s most influential economic think tanks.',
+                description: 'TL;DR: Governments printed too much, people spent it all at once, and supply couldn\'t keep up.\n\nWhy did economists predict deflation when COVID actually brought inflation? Written for the Institute of Economic Affairs, one of the UK\'s most influential economic think tanks.\n\nGovernments printed trillions in stimulus  - far more than 2008  - but this time people actually spent it. Pent-up demand exploded just as supply chains collapsed, creating the perfect inflation storm. Unlike the financial crisis, where QE barely moved CPI, the artificial preservation of employment meant consumers had both the money and the confidence to spend in droves. The war in Ukraine poured fuel on an already overheating economy.',
+                date: null,
+                link: 'https://docs.google.com/document/d/1wlM2wJvyzdkjUSlSl26M2ZXKI_JBIdXpGE2FVgLQSt4/edit',
+                linkType: 'pdf',
+                image: 'assets/logos/iea.png',
+            },
+        ]
+    },
+    {
+        category: 'Social Media',
+        items: [
+            {
+                title: 'Shaun Attwood',
+                description: 'Produced content for Shaun Attwood.',
+                date: null,
+                link: 'https://www.youtube.com/watch?v=cNzhkOVGAe0&t=291s',
+                linkType: 'youtube',
+                image: null,
+            },
+        ]
+    },
+    {
+        category: 'Guitar',
+        items: [
+            {
+                title: 'First Guitarist to Win Overall Prize',
+                description: 'First guitarist ever to win local music festival overall prize.',
+                date: null,
+                link: null,
+                linkType: null,
+                image: null,
+            },
+            {
+                title: 'National Youth Guitar Ensemble',
+                description: null,
+                date: null,
+                link: 'https://youtu.be/uQDwTXJ9bsc',
+                linkType: 'youtube',
+                image: 'assets/logos/nyge.png',
+            },
+        ]
+    },
+];
+
+// ── Work Modal State ──
+
+let allWorkItems = [];
+let currentWorkIndex = 0;
+let workModalOpen = false;
 
 // ── Config ──
 
 const HOLD_DURATION = 1500;
 const SCROLL_TOTAL = 500;
 const SMOOTH_SPEED = 6;
-const TILT_MAX = 4;
+const TILT_MAX = 2;
 const HEADER_HEIGHT = 96;
 const CONTENT_SCROLL_START = 0.3;  // morph progress when content starts scrolling in
 const CONTENT_SCROLL_AMOUNT = 200; // how much content scrolls during morph
 
 // ── State ──
 
+const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 let targetNumber = 0;
 let correctSince = null;
 let verified = false;
 let camera = null;
+let handsModel = null;
+let handsReady = false;
 let phase = 'gate';         // 'gate' | 'card' | 'morphing' | 'content'
 let targetProgress = 0;
 let currentProgress = 0;
 let lastTimestamp = 0;
-let touchLastY = 0;
 let tiltEnabled = false;
 
 // ── Morph State ──
@@ -90,11 +225,53 @@ function init() {
     targetEl.textContent = targetNumber;
     pluralEl.textContent = targetNumber === 1 ? '' : 's';
 
-    checkboxArea.addEventListener('click', startChallenge);
-    skipLink.addEventListener('click', transitionToLanding);
-
     renderWall();
+    renderWork();
+
+    if (isMobile) {
+        // Skip gate entirely on mobile  - go straight to card
+        gate.style.display = 'none';
+        verified = true;
+        cardOverlay.classList.add('visible');
+        setTimeout(() => card.classList.add('visible'), 80);
+        setTimeout(() => {
+            card.classList.add('interactive');
+            phase = 'card';
+            setupMobileCardTap();
+        }, 400);
+    } else {
+        checkboxArea.addEventListener('click', startChallenge);
+        skipLink.addEventListener('click', transitionToLanding);
+        preloadMediaPipe();
+    }
+
     requestAnimationFrame(tick);
+}
+
+// ── Preload MediaPipe in background ──
+
+function preloadMediaPipe() {
+    try {
+        handsModel = new Hands({
+            locateFile: (file) =>
+                `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/${file}`,
+        });
+        handsModel.setOptions({ maxNumHands: 1, modelComplexity: 1, minDetectionConfidence: 0.6, minTrackingConfidence: 0.5 });
+        handsModel.onResults(onResults);
+
+        // Warm up the model with a tiny canvas to trigger WASM + model download
+        const warmup = document.createElement('canvas');
+        warmup.width = 1;
+        warmup.height = 1;
+        handsModel.send({ image: warmup }).then(() => {
+            handsReady = true;
+        }).catch(() => {
+            // Warmup may fail but model files still download  - that's fine
+            handsReady = true;
+        });
+    } catch (e) {
+        // MediaPipe script not loaded yet  - will fall back to on-demand loading
+    }
 }
 
 // ── Gate: Challenge ──
@@ -112,28 +289,37 @@ async function startChallenge() {
         await webcamEl.play();
         overlayEl.width = webcamEl.videoWidth || 640;
         overlayEl.height = webcamEl.videoHeight || 480;
-        statusPill.textContent = 'Loading hand detection...';
-        initMediaPipe();
+
+        if (handsReady && handsModel) {
+            statusPill.textContent = 'Show your hand...';
+            startCamera(handsModel);
+        } else {
+            statusPill.textContent = 'Loading hand detection...';
+            waitForModel();
+        }
     } catch (err) {
-        statusPill.textContent = 'Camera denied — use skip below';
+        statusPill.textContent = 'Camera denied  - use skip below';
         statusPill.classList.add('wrong');
     }
 }
 
-function initMediaPipe() {
-    const hands = new Hands({
-        locateFile: (file) =>
-            `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/${file}`,
-    });
-    hands.setOptions({ maxNumHands: 1, modelComplexity: 1, minDetectionConfidence: 0.6, minTrackingConfidence: 0.5 });
-    hands.onResults(onResults);
+function waitForModel() {
+    const check = setInterval(() => {
+        if (verified) { clearInterval(check); return; }
+        if (handsReady && handsModel) {
+            clearInterval(check);
+            statusPill.textContent = 'Show your hand...';
+            startCamera(handsModel);
+        }
+    }, 100);
+}
 
+function startCamera(hands) {
     camera = new Camera(webcamEl, {
         onFrame: async () => { if (!verified) await hands.send({ image: webcamEl }); },
         width: 640, height: 480,
     });
     camera.start();
-    statusPill.textContent = 'Show your hand...';
 }
 
 function onResults(results) {
@@ -159,7 +345,7 @@ function onResults(results) {
         const elapsed = Date.now() - correctSince;
         const progress = Math.min(elapsed / HOLD_DURATION, 1);
         progressFill.style.width = `${progress * 100}%`;
-        statusPill.textContent = `${count} finger${count === 1 ? '' : 's'} — hold it...`;
+        statusPill.textContent = `${count} finger${count === 1 ? '' : 's'}  - hold it...`;
         statusPill.className = 'status-pill correct';
         if (progress >= 1) onSuccess();
     } else {
@@ -234,11 +420,54 @@ function transitionToLanding() {
             phase = 'card';
             tiltEnabled = true;
             window.addEventListener('wheel', onWheel, { passive: false });
-            window.addEventListener('touchstart', onTouchStart, { passive: true });
-            window.addEventListener('touchmove', onTouchMove, { passive: false });
             window.addEventListener('keydown', onKeyDown);
         }, 1300);
     }, { once: true });
+}
+
+// ── Mobile: tap/swipe card to go straight to content ──
+
+function setupMobileCardTap() {
+    let touchStartY = 0;
+    let touchStartTime = 0;
+
+    cardOverlay.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+    }, { passive: true });
+
+    cardOverlay.addEventListener('touchend', (e) => {
+        if (phase !== 'card') return;
+        const dy = touchStartY - (e.changedTouches[0]?.clientY || touchStartY);
+        const dt = Date.now() - touchStartTime;
+
+        // Trigger on swipe up (>30px) or quick tap (<300ms, minimal movement)
+        if (dy > 30 || (dt < 300 && Math.abs(dy) < 10)) {
+            mobileTransitionToContent();
+        }
+    }, { passive: true });
+}
+
+function mobileTransitionToContent() {
+    phase = 'morphing';
+
+    // Fade out card overlay
+    cardOverlay.style.transition = 'opacity 0.4s ease';
+    cardOverlay.style.opacity = '0';
+
+    // Show header and content
+    header.classList.add('visible');
+    document.body.classList.add('scrollable');
+    contentEl.classList.add('visible');
+    contentEl.style.opacity = '1';
+    contentEl.style.transform = '';
+
+    setTimeout(() => {
+        cardOverlay.style.display = 'none';
+        cardOverlay.style.transition = '';
+        phase = 'content';
+        window.scrollTo(0, 0);
+    }, 400);
 }
 
 // ═══════════════════════════════════════════
@@ -251,7 +480,7 @@ function getMorphPairs() {
         [card.querySelector('a[href^="mailto"]'), header.querySelector('.header-email')],
         [card.querySelector('a[href^="tel"]'), header.querySelector('.header-phone')],
         [card.querySelector('a[aria-label="LinkedIn"]'), header.querySelector('a[aria-label="LinkedIn"]')],
-    ];
+    ].filter(([from, to]) => from && to);
 }
 
 // Measure all positions for card state and header state
@@ -362,7 +591,7 @@ function createGhosts() {
         return ghost;
     });
 
-    // Fade ghosts (photo, tagline, separator) — apply computed styles so they match
+    // Fade ghosts (photo, tagline, separator)  - apply computed styles so they match
     morphFades = morphData.fades.map((item) => {
         const ghost = item.el.cloneNode(true);
         ghost.className = 'morph-fade';
@@ -641,30 +870,6 @@ function onWheel(e) {
     // Content phase: normal scrolling, no reverse morph
 }
 
-function onTouchStart(e) {
-    touchLastY = e.touches[0].clientY;
-}
-
-function onTouchMove(e) {
-    lastScrollTime = performance.now();
-    const y = e.touches[0].clientY;
-    const delta = touchLastY - y; // positive = scroll down
-    touchLastY = y;
-
-    if (phase === 'card' && delta > 3) {
-        e.preventDefault();
-        startMorphForward();
-        targetProgress = clamp(delta / SCROLL_TOTAL, 0, 1);
-    } else if (phase === 'morphing') {
-        e.preventDefault();
-        // Only allow forward scrolling during morph
-        if (delta > 0) {
-            targetProgress = clamp(targetProgress + delta / SCROLL_TOTAL, 0, 1);
-        }
-    }
-    // Content phase: normal scrolling, no reverse morph
-}
-
 function onKeyDown(e) {
     lastScrollTime = performance.now();
     if (phase === 'card' && ['ArrowDown', ' ', 'PageDown'].includes(e.key)) {
@@ -756,7 +961,7 @@ function renderWall() {
         const delay = i * 0.04;
 
         return `
-            <div class="media-item" style="--delay: ${delay}s">
+            <a class="media-item" href="${item.url}" target="_blank" rel="noopener" style="--delay: ${delay}s">
                 <div class="media-cover">
                     <img src="${item.image}" alt="${item.title}" loading="lazy">
                 </div>
@@ -764,14 +969,448 @@ function renderWall() {
                     <span class="media-title">${item.title}</span>
                     <span class="media-subtitle">${item.subtitle}</span>
                 </div>
-            </div>
+            </a>
         `;
     }).join('');
 
     container.innerHTML = html;
 }
 
+// ── Render Work Section ──
+
+function getLinkIcon(linkType) {
+    const icons = {
+        youtube: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>',
+        github: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>',
+        pdf: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+        external: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>',
+    };
+    return icons[linkType] || icons.external;
+}
+
+function getThumbIcon(linkType) {
+    const icons = {
+        youtube: '<svg class="work-thumb-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>',
+        github: '<svg class="work-thumb-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>',
+        pdf: '<svg class="work-thumb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+    };
+    return icons[linkType] || '<svg class="work-thumb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>';
+}
+
+function renderWork() {
+    const container = document.getElementById('workContent');
+    if (!container) return;
+
+    // Build flat index of all work items
+    allWorkItems = [];
+    WORK_DATA.forEach(category => {
+        category.items.forEach(item => {
+            allWorkItems.push({ ...item, category: category.category });
+        });
+    });
+
+    let itemIndex = 0;
+    const html = WORK_DATA.map(category => {
+        const itemsHtml = category.items.map(item => {
+            const delay = itemIndex * 0.04;
+            const idx = itemIndex;
+            itemIndex++;
+
+            const thumb = item.image
+                ? `<div class="work-thumb"><img src="${item.image}" alt="${item.title}" loading="lazy"></div>`
+                : `<div class="work-thumb">${getThumbIcon(item.linkType)}</div>`;
+
+            const cardText = item.caption || item.description;
+            const desc = cardText
+                ? `<span class="work-desc">${cardText}</span>`
+                : '';
+
+            const dateBadge = item.date
+                ? `<span class="work-date">${item.date}</span>`
+                : '';
+
+            const privateBadge = item.private
+                ? '<span class="work-badge">in development</span>'
+                : '';
+
+            return `
+                <div class="work-item" style="--delay: ${delay}s" data-work-index="${idx}">
+                    ${thumb}
+                    <div class="work-text">
+                        <span class="work-title">${item.title}</span>
+                        ${desc}
+                        <div class="work-meta">
+                            ${dateBadge}
+                            ${privateBadge}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        return `
+            <h3 class="work-category">${category.category}</h3>
+            <div class="work-list">${itemsHtml}</div>
+        `;
+    }).join('');
+
+    container.innerHTML = html;
+
+    // Attach click handlers
+    container.querySelectorAll('.work-item[data-work-index]').forEach(el => {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', () => {
+            openWorkModal(parseInt(el.dataset.workIndex, 10));
+        });
+    });
+}
+
+// ── Work Modal ──
+
+function getLinkLabel(linkType) {
+    const labels = {
+        youtube: 'View on YouTube',
+        github: 'View on GitHub',
+        pdf: 'View PDF',
+    };
+    return labels[linkType] || 'Visit';
+}
+
+function getYouTubeId(url) {
+    // youtu.be/ID or youtube.com/watch?v=ID
+    const short = url.match(/youtu\.be\/([^?&]+)/);
+    if (short) return short[1];
+    const long = url.match(/[?&]v=([^?&]+)/);
+    if (long) return long[1];
+    return null;
+}
+
+function getEmbed(item) {
+    if (!item.link) return '';
+
+    if (item.linkType === 'youtube') {
+        const id = getYouTubeId(item.link);
+        if (id) {
+            return `<div class="work-detail-embed work-detail-embed-video">
+                <iframe src="https://www.youtube.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>`;
+        }
+    }
+
+    if (item.linkType === 'pdf') {
+        let embedUrl = item.link;
+        // Google Drive: /view → /preview
+        if (embedUrl.includes('drive.google.com/file/d/')) {
+            embedUrl = embedUrl.replace(/\/view.*$/, '/preview');
+        }
+        // Google Docs: /edit → /preview
+        else if (embedUrl.includes('docs.google.com/document/d/')) {
+            embedUrl = embedUrl.replace(/\/edit.*$/, '/preview');
+        }
+        // Dropbox: use raw content in iframe
+        else if (embedUrl.includes('dropbox.com')) {
+            embedUrl = embedUrl.replace(/\?.*$/, '') + '?raw=1';
+        }
+        const isGoogleDoc = embedUrl.includes('docs.google.com/document/');
+        const openLink = isGoogleDoc
+            ? `<a class="embed-open-link" href="${item.link}" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>Open original</span>
+            </a>`
+            : '';
+        return `<div class="work-detail-embed work-detail-embed-pdf">
+            <iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>
+            ${openLink}
+        </div>`;
+    }
+
+    // GitHub or other: external link button
+    return `<a class="work-detail-link" href="${item.link}" target="_blank" rel="noopener">${getLinkIcon(item.linkType)}<span>${getLinkLabel(item.linkType)}</span></a>`;
+}
+
+function renderWorkDetail(index) {
+    const item = allWorkItems[index];
+    if (!item) return;
+
+    const content = document.getElementById('workModalContent');
+
+    const category = `<div class="work-detail-category">${item.category}</div>`;
+    const title = `<h2 class="work-detail-title">${item.title}</h2>`;
+
+    const desc = item.description
+        ? `<div class="work-detail-desc">${item.description.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}</div>`
+        : '';
+
+    const image = item.detailImage
+        ? `<figure class="work-detail-figure"><img class="work-detail-image" src="${item.detailImage}" alt="${item.title}"><figcaption class="work-detail-caption">${item.detailImageCaption || ''}</figcaption></figure>`
+        : '';
+
+    let meta = '';
+    if (item.date || item.private) {
+        const datePart = item.date ? `<span class="work-detail-date">${item.date}</span>` : '';
+        const badgePart = item.private ? '<span class="work-detail-badge">in development</span>' : '';
+        meta = `<div class="work-detail-meta">${datePart}${badgePart}</div>`;
+    }
+
+    const embed = getEmbed(item);
+    const isPdfEmbed = item.linkType === 'pdf' && item.link;
+
+    const mobileNav = `<div class="work-modal-mobile-nav">
+        <button class="work-modal-arrow work-modal-mobile-prev" aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="work-modal-arrow work-modal-mobile-next" aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+    </div>`;
+
+    if (isPdfEmbed) {
+        content.innerHTML = `
+            <div class="work-detail-split">
+                <div class="work-detail-split-text">
+                    ${category}${title}${desc}${image}${meta}
+                </div>
+                <div class="work-detail-split-embed">
+                    ${embed}
+                </div>
+            </div>
+            ${mobileNav}`;
+    } else {
+        content.innerHTML = category + title + desc + image + meta + embed + mobileNav;
+    }
+
+    // Attach mobile nav handlers
+    const mobilePrev = content.querySelector('.work-modal-mobile-prev');
+    const mobileNext = content.querySelector('.work-modal-mobile-next');
+    if (mobilePrev) mobilePrev.addEventListener('click', () => navigateWork(-1));
+    if (mobileNext) mobileNext.addEventListener('click', () => navigateWork(1));
+}
+
+function openWorkModal(index) {
+    currentWorkIndex = index;
+    workModalOpen = true;
+
+    renderWorkDetail(index);
+
+    const modal = document.getElementById('workModal');
+    const item = allWorkItems[index];
+    const isPdf = item.linkType === 'pdf' && item.link;
+    modal.classList.toggle('wide', isPdf);
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    window.addEventListener('keydown', onWorkModalKeyDown);
+}
+
+function closeWorkModal() {
+    workModalOpen = false;
+    const modal = document.getElementById('workModal');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+
+    window.removeEventListener('keydown', onWorkModalKeyDown);
+}
+
+function navigateWork(delta) {
+    currentWorkIndex = (currentWorkIndex + delta + allWorkItems.length) % allWorkItems.length;
+    const item = allWorkItems[currentWorkIndex];
+    const isPdf = item.linkType === 'pdf' && item.link;
+    document.getElementById('workModal').classList.toggle('wide', isPdf);
+    renderWorkDetail(currentWorkIndex);
+}
+
+function onWorkModalKeyDown(e) {
+    if (e.key === 'Escape') {
+        closeWorkModal();
+    } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigateWork(-1);
+    } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        navigateWork(1);
+    }
+}
+
+// Set up modal event listeners
+(function initWorkModal() {
+    const modal = document.getElementById('workModal');
+    if (!modal) return;
+
+    modal.querySelector('.work-modal-backdrop').addEventListener('click', closeWorkModal);
+    modal.querySelector('.work-modal-prev').addEventListener('click', () => navigateWork(-1));
+    modal.querySelector('.work-modal-next').addEventListener('click', () => navigateWork(1));
+})();
+
+// ── Header Name → Return to Card ──
+
+function returnToCard() {
+    if (phase !== 'content') return;
+    phase = 'returning'; // prevent scroll/morph interference
+
+    // Immediately stop page scrolling and go to top
+    document.body.classList.remove('scrollable');
+    window.scrollTo(0, 0);
+
+    // Fade out header and content together
+    header.style.transition = 'opacity 0.35s ease';
+    contentEl.style.transition = 'opacity 0.35s ease';
+    header.style.opacity = '0';
+    contentEl.style.opacity = '0';
+
+    setTimeout(() => {
+        // Clean up header and content
+        header.classList.remove('visible');
+        header.style.transition = '';
+        header.style.opacity = '';
+        contentEl.classList.remove('visible');
+        contentEl.style.transition = '';
+        contentEl.style.opacity = '';
+        contentEl.style.transform = '';
+
+        // Restore card overlay (was display:none from completeMorphForward)
+        cardOverlay.style.display = '';
+        cardOverlay.style.pointerEvents = '';
+        cardOverlay.style.background = '';
+        cardOverlay.classList.add('visible');
+
+        // Restore card
+        card.style.opacity = '';
+        card.style.visibility = '';
+        card.classList.add('visible');
+
+        // Reset scroll cue
+        if (scrollCue) scrollCue.style.opacity = '';
+
+        // Re-enable interaction after card is visible
+        setTimeout(() => {
+            card.classList.add('interactive');
+            tiltEnabled = true;
+            phase = 'card';
+        }, 100);
+    }, 350);
+}
+
+document.querySelector('.header-name').addEventListener('click', returnToCard);
+document.querySelector('.header-name').style.cursor = 'pointer';
+
+// ── Particle Constellation ──
+
+function initParticles() {
+    const canvas = document.getElementById('particleCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    let w, h;
+    const particles = [];
+    const PARTICLE_COUNT = 90;
+    const CONNECTION_DIST = 140;
+    const MOUSE_RADIUS = 200;
+    let mouse = { x: -9999, y: -9999 };
+    let running = true;
+
+    function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    document.addEventListener('mousemove', (e) => {
+        if (phase === 'gate') {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        }
+    });
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            r: Math.random() * 1.8 + 0.8,
+        });
+    }
+
+    function getExclusionRect() {
+        const box = document.querySelector('.gate-content');
+        if (!box) return null;
+        const r = box.getBoundingClientRect();
+        const pad = 20;
+        return { x: r.left - pad, y: r.top - pad, w: r.width + pad * 2, h: r.height + pad * 2 };
+    }
+
+    function drawParticles() {
+        if (phase !== 'gate') { running = false; return; }
+        requestAnimationFrame(drawParticles);
+
+        ctx.clearRect(0, 0, w, h);
+        const exc = getExclusionRect();
+
+        for (const p of particles) {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0) p.x = w;
+            if (p.x > w) p.x = 0;
+            if (p.y < 0) p.y = h;
+            if (p.y > h) p.y = 0;
+        }
+
+        const mx = mouse.x;
+        const my = mouse.y;
+
+        function inExclusion(x, y) {
+            return exc && x > exc.x && x < exc.x + exc.w && y > exc.y && y < exc.y + exc.h;
+        }
+
+        // Draw all particles (always visible)
+        for (let i = 0; i < particles.length; i++) {
+            const a = particles[i];
+            if (inExclusion(a.x, a.y)) continue;
+            const dxM = a.x - mx;
+            const dyM = a.y - my;
+            const distMouse = Math.sqrt(dxM * dxM + dyM * dyM);
+            const nearMouse = distMouse < MOUSE_RADIUS;
+            const mouseAlpha = nearMouse ? 1 - distMouse / MOUSE_RADIUS : 0;
+
+            // Connections (only near mouse)
+            if (nearMouse) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const b = particles[j];
+                    const dx = a.x - b.x;
+                    const dy = a.y - b.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist > CONNECTION_DIST) continue;
+
+                    if (inExclusion(b.x, b.y)) continue;
+                    const bDist = Math.sqrt((b.x - mx) ** 2 + (b.y - my) ** 2);
+                    if (bDist > MOUSE_RADIUS) continue;
+
+                    const lineAlpha = (1 - dist / CONNECTION_DIST) * mouseAlpha * 0.8;
+                    ctx.beginPath();
+                    ctx.moveTo(a.x, a.y);
+                    ctx.lineTo(b.x, b.y);
+                    ctx.strokeStyle = `rgba(80, 75, 65, ${lineAlpha})`;
+                    ctx.lineWidth = 1.2;
+                    ctx.stroke();
+                }
+            }
+
+            // Dot
+            const dotAlpha = nearMouse ? 0.4 + mouseAlpha * 0.5 : 0.35;
+            const dotR = nearMouse ? a.r + mouseAlpha * 2.5 : a.r;
+            ctx.beginPath();
+            ctx.arc(a.x, a.y, dotR, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(100, 95, 85, ${dotAlpha})`;
+            ctx.fill();
+        }
+    }
+
+    requestAnimationFrame(drawParticles);
+}
+
 // ── Go ──
 
 init();
 initCardTilt();
+initParticles();
