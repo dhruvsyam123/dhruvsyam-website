@@ -482,6 +482,9 @@ function setupMobileCardTap() {
 function mobileTransitionToContent() {
     phase = 'morphing';
 
+    // Immediately stop overlay from intercepting touches
+    cardOverlay.style.pointerEvents = 'none';
+
     // Fade out card overlay
     cardOverlay.style.transition = 'opacity 0.4s ease';
     cardOverlay.style.opacity = '0';
@@ -496,6 +499,8 @@ function mobileTransitionToContent() {
     setTimeout(() => {
         cardOverlay.style.display = 'none';
         cardOverlay.style.transition = '';
+        cardOverlay.classList.remove('visible');
+        cardOverlay.style.pointerEvents = '';
         phase = 'content';
         window.scrollTo(0, 0);
     }, 400);
@@ -1351,6 +1356,31 @@ function onWorkModalKeyDown(e) {
     modal.querySelector('.work-modal-next').addEventListener('click', () => navigateWork(1));
     const closeBtn = document.getElementById('workModalClose');
     if (closeBtn) closeBtn.addEventListener('click', closeWorkModal);
+
+    // Swipe left/right to navigate between work items on mobile
+    let swipeStartX = 0;
+    let swipeStartY = 0;
+    const modalContent = document.getElementById('workModalContent');
+
+    modalContent.addEventListener('touchstart', (e) => {
+        swipeStartX = e.touches[0].clientX;
+        swipeStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    modalContent.addEventListener('touchend', (e) => {
+        if (!workModalOpen) return;
+        const dx = swipeStartX - (e.changedTouches[0]?.clientX || swipeStartX);
+        const dy = swipeStartY - (e.changedTouches[0]?.clientY || swipeStartY);
+
+        // Only trigger if horizontal swipe is dominant (>50px) and not a vertical scroll
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+            if (dx > 0) {
+                navigateWork(1);  // swipe left → next
+            } else {
+                navigateWork(-1); // swipe right → prev
+            }
+        }
+    }, { passive: true });
 })();
 
 // ── Header Name → Return to Card ──

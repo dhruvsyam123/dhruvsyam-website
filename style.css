@@ -19,14 +19,6 @@ body.scrollable {
     height: auto;
 }
 
-/* Prevent pull-to-refresh and overscroll on mobile */
-@supports (-webkit-touch-callout: none) {
-    body:not(.scrollable) {
-        position: fixed;
-        width: 100%;
-    }
-}
-
 /* ── Gate ── */
 
 #gate {
