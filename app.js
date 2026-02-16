@@ -177,6 +177,7 @@ const WORK_DATA = [
 let allWorkItems = [];
 let currentWorkIndex = 0;
 let workModalOpen = false;
+let savedScrollY = 0;
 
 // ── Config ──
 
@@ -463,6 +464,11 @@ function setupMobileCardTap() {
 
     cardOverlay.addEventListener('touchend', (e) => {
         if (phase !== 'card') return;
+
+        // Don't transition if user tapped a link (email, LinkedIn, etc.)
+        const tappedEl = e.target.closest('a');
+        if (tappedEl) return;
+
         const dy = touchStartY - (e.changedTouches[0]?.clientY || touchStartY);
         const dt = Date.now() - touchStartTime;
 
@@ -1289,6 +1295,12 @@ function openWorkModal(index) {
     modal.classList.toggle('wide', isPdf || hasShowcase);
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    if (isMobile) {
+        savedScrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${savedScrollY}px`;
+        document.body.style.width = '100%';
+    }
 
     window.addEventListener('keydown', onWorkModalKeyDown);
 }
@@ -1298,6 +1310,12 @@ function closeWorkModal() {
     const modal = document.getElementById('workModal');
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    if (isMobile) {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, savedScrollY);
+    }
 
     window.removeEventListener('keydown', onWorkModalKeyDown);
 }
@@ -1331,6 +1349,8 @@ function onWorkModalKeyDown(e) {
     modal.querySelector('.work-modal-backdrop').addEventListener('click', closeWorkModal);
     modal.querySelector('.work-modal-prev').addEventListener('click', () => navigateWork(-1));
     modal.querySelector('.work-modal-next').addEventListener('click', () => navigateWork(1));
+    const closeBtn = document.getElementById('workModalClose');
+    if (closeBtn) closeBtn.addEventListener('click', closeWorkModal);
 })();
 
 // ── Header Name → Return to Card ──
